@@ -1,5 +1,5 @@
-<<<<<<< HEAD
-This project is to 
+# vagrant-ansible-docker-project
+project to create docker containers using ansible which installed by bootstrap file after starting new VM using vagrant
 
 1. Using Vagrant, to define a local Virtualbox-based VM with any linux os in Vagrantfile.
 
@@ -24,6 +24,5 @@ To run this project (you must have vagrant installed)
 
 2. run 'vagrant up; 
 =======
-# vagrant-ansible-docker-project
-project to create docker containers using ansible which installed by bootstrap file after starting new VM using vagrant
+
 >>>>>>> 5ecd1ff41abdaefa3143bab3a10f1ddd991a810f
