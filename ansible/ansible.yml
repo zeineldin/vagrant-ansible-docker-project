@@ -1,0 +1,53 @@
+---
+- hosts: localhost
+  remote_user: vagrant
+  become: yes
+  roles:
+    - docker
+  tasks:
+
+   - name: create-configure mariadb container
+     docker:
+        name: db
+        image: "mariadb"
+        state: reloaded
+        publish_all_ports: yes
+        env:
+
+          MYSQL_ROOT_PASSWORD: wordpress
+          MYSQL_DATABASE: wordpress
+          MYSQL_USER: wordpress
+          MYSQL_PASSWORD: wordpress
+#        volumes:
+#          - ./mysql-data:/var/lib/mysql
+        ports:
+          - "3306:3306"
+   - name: Pause 
+     pause: 
+       seconds=30 
+   - name: restore DB 
+     script: /vagrant/src/mysql.sh
+
+   - name: create-configure wordpress docker container
+     docker:
+        name: wordpress
+        image: "wordpress"
+        state: reloaded
+#        publish_all_ports: yes
+        links:
+        - db:mysql
+        ports:
+        - 8080:80
+#     volumes:
+#        db_data:
+   - name: copy index.php
+#     command: docker cp /tmp/example container:/data/
+     command: docker cp /vagrant/src/index.php wordpress:/var/www/html
+
+  
+   - name: create-run consul container
+     docker:
+        name: consul
+        image: "consul"
+        state: reloaded
+        publish_all_ports: yes
