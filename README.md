@@ -17,9 +17,8 @@ project to create docker containers using ansible which installed by bootstrap f
 
 5. Application shall serve HTTP and be available on host's 127.0.0.1:8080
 
+   To run this project (you must have vagrant installed) 
 
-To run this project (you must have vagrant installed) 
+A. clone the project 
 
-1. clone the project 
-
-2. run 'vagrant up; 
+B. run 'vagrant up; 
