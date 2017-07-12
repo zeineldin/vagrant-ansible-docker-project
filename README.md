@@ -23,6 +23,3 @@ To run this project (you must have vagrant installed)
 1. clone the project 
 
 2. run 'vagrant up; 
-=======
-
->>>>>>> 5ecd1ff41abdaefa3143bab3a10f1ddd991a810f
